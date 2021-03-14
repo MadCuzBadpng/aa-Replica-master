@@ -12,6 +12,14 @@ public class GameManager : MonoBehaviour {
 
 	public Animator animator;
 
+	void Update ()
+    {
+		if (LifeScript.CurrentLife <=0)
+        {
+			SceneManager.LoadScene(2);
+		}
+    }
+
 	public void EndGame ()
 	{
 		if (gameHasEnded)
@@ -20,8 +28,10 @@ public class GameManager : MonoBehaviour {
 		rotator.enabled = false;
 		spawner.enabled = false;
 
-		animator.SetTrigger("EndGame");
+		LifeScript.CurrentLife -= 1;
 
+		animator.SetTrigger("EndGame");
+		
 		gameHasEnded = true;
 	}
 

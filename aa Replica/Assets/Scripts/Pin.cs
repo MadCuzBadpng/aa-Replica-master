@@ -6,7 +6,7 @@ public class Pin : MonoBehaviour {
 
 	private bool isPinned = false;
 
-	public float speed = 20f;
+	public static float speed = 20f;
 	public Rigidbody2D rb;
 
 	void Update ()
